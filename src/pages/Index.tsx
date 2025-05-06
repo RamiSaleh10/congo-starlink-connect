@@ -1,12 +1,45 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+import BenefitsSection from '@/components/BenefitsSection';
+import RegistrationForm from '@/components/RegistrationForm';
+import ThankYouMessage from '@/components/ThankYouMessage';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  const [language, setLanguage] = useState<'en' | 'fr'>('en');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  
+  const handleLanguageChange = (lang: 'en' | 'fr') => {
+    setLanguage(lang);
+  };
+  
+  const handleFormSubmitSuccess = () => {
+    setFormSubmitted(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
+  const handleReset = () => {
+    setFormSubmitted(false);
+  };
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Header language={language} onLanguageChange={handleLanguageChange} />
+      
+      <main className="flex-grow">
+        <HeroSection language={language} />
+        <BenefitsSection language={language} />
+        
+        {formSubmitted ? (
+          <ThankYouMessage language={language} onReset={handleReset} />
+        ) : (
+          <RegistrationForm language={language} onSubmitSuccess={handleFormSubmitSuccess} />
+        )}
+      </main>
+      
+      <Footer language={language} />
     </div>
   );
 };
