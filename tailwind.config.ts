@@ -69,7 +69,8 @@ export default {
 					'sky-blue': '#7ECEF4',
 					'space-black': '#111827',
 					'slate': '#334155',
-					'light-gray': '#F1F5F9'
+					'light-gray': '#F1F5F9',
+					'background': '#023356'
 				},
 			},
 			borderRadius: {
