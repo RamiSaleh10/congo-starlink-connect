@@ -24,7 +24,7 @@ const Footer = ({ language }: FooterProps) => {
     <footer className="bg-starlink-space-black/90 backdrop-blur-sm text-white py-8">
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <p className="mb-2">© {year} Starlink Congo. {text.rights}</p>
+          <p className="mb-2">© {year} Starlink RDC by BestBuy Congo. {text.rights}</p>
           <p className="text-sm text-gray-400">{text.disclaimer}</p>
         </div>
       </div>
