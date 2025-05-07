@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MoveRight } from 'lucide-react';
@@ -79,6 +80,18 @@ const ProductCard = ({ name, description, imagePath, buttonText, onClick }: Prod
 const ProductsSection = ({ language, onInquire }: ProductsProps) => {
   const text = translations[language];
   
+  const handleInquireClick = () => {
+    onInquire();
+    
+    // Add a small delay to ensure the form is rendered before scrolling
+    setTimeout(() => {
+      const registerSection = document.getElementById('register');
+      if (registerSection) {
+        registerSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+  
   return (
     <section className="py-16 bg-starlink-background" id="products">
       <div className="container mx-auto px-4">
@@ -93,7 +106,7 @@ const ProductsSection = ({ language, onInquire }: ProductsProps) => {
             description={text.standardKit.description}
             imagePath="/lovable-uploads/d8265ba2-5bd8-4832-afd8-96a9806aaf71.png"
             buttonText={text.inquireButton}
-            onClick={onInquire}
+            onClick={handleInquireClick}
           />
           
           <ProductCard 
@@ -101,7 +114,7 @@ const ProductsSection = ({ language, onInquire }: ProductsProps) => {
             description={text.miniKit.description}
             imagePath="/lovable-uploads/25816ef1-efba-4c3c-9dfc-9c2e0b71dcb0.png"
             buttonText={text.inquireButton}
-            onClick={onInquire}
+            onClick={handleInquireClick}
           />
           
           <ProductCard 
@@ -109,7 +122,7 @@ const ProductsSection = ({ language, onInquire }: ProductsProps) => {
             description={text.flatHpKit.description}
             imagePath="/lovable-uploads/3e78cd98-1a1d-4ccf-8671-827259c31dd4.png"
             buttonText={text.inquireButton}
-            onClick={onInquire}
+            onClick={handleInquireClick}
           />
         </div>
       </div>
