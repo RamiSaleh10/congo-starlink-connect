@@ -21,7 +21,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
   
   return (
     <section 
-      className="relative text-white py-20 md:py-32 bg-cover bg-center" 
+      className="relative text-white py-32 md:py-48 bg-cover bg-center" 
       style={{ backgroundImage: "url('/lovable-uploads/34c20e2f-dde4-4c84-8442-12a4719b0f1a.png')" }}
     >
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
