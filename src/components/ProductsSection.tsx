@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MoveRight } from 'lucide-react';
 
 interface ProductsProps {
   language: 'en' | 'fr';
+  onInquire: () => void;
 }
 
 const translations = {
@@ -76,16 +76,8 @@ const ProductCard = ({ name, description, imagePath, buttonText, onClick }: Prod
   </div>
 );
 
-const ProductsSection = ({ language }: ProductsProps) => {
+const ProductsSection = ({ language, onInquire }: ProductsProps) => {
   const text = translations[language];
-  
-  const handleInquire = () => {
-    // Scroll to registration form or open a modal
-    const element = document.getElementById('register');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
   
   return (
     <section className="py-16 bg-starlink-background" id="products">
@@ -101,7 +93,7 @@ const ProductsSection = ({ language }: ProductsProps) => {
             description={text.standardKit.description}
             imagePath="/lovable-uploads/d8265ba2-5bd8-4832-afd8-96a9806aaf71.png"
             buttonText={text.inquireButton}
-            onClick={handleInquire}
+            onClick={onInquire}
           />
           
           <ProductCard 
@@ -109,7 +101,7 @@ const ProductsSection = ({ language }: ProductsProps) => {
             description={text.miniKit.description}
             imagePath="/lovable-uploads/25816ef1-efba-4c3c-9dfc-9c2e0b71dcb0.png"
             buttonText={text.inquireButton}
-            onClick={handleInquire}
+            onClick={onInquire}
           />
           
           <ProductCard 
@@ -117,7 +109,7 @@ const ProductsSection = ({ language }: ProductsProps) => {
             description={text.flatHpKit.description}
             imagePath="/lovable-uploads/3e78cd98-1a1d-4ccf-8671-827259c31dd4.png"
             buttonText={text.inquireButton}
-            onClick={handleInquire}
+            onClick={onInquire}
           />
         </div>
       </div>

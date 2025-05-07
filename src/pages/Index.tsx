@@ -39,7 +39,10 @@ const Index = () => {
       <main className="flex-grow pt-16">
         <HeroSection language={language} />
         <BenefitsSection language={language} />
-        <ProductsSection language={language} />
+        <ProductsSection 
+          language={language} 
+          onInquire={toggleRegistrationForm} 
+        />
         
         {formSubmitted ? (
           <ThankYouMessage language={language} onReset={handleReset} />

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Button } from '@/components/ui/button';
 
 interface ThankYouMessageProps {
   language: 'en' | 'fr';
@@ -9,15 +10,15 @@ interface ThankYouMessageProps {
 const translations = {
   en: {
     heading: "Thank You for Your Interest!",
-    message: "We've received your registration for Starlink service in DR Congo. Our team will contact you with more information about availability and next steps.",
-    registerAnother: "Register Another Person",
-    additionalInfo: "Starlink is expanding its coverage across DR Congo to provide high-speed internet in areas previously underserved."
+    message: "We've received your inquiry about Starlink service in DR Congo. Our representative will contact you soon with more information.",
+    registerAnother: "Submit Another Inquiry",
+    additionalInfo: "BestBuy Congo is the official distributor of Starlink in RD Congo, providing high-speed internet solutions across the country."
   },
   fr: {
     heading: "Merci pour Votre Intérêt!",
-    message: "Nous avons reçu votre inscription pour le service Starlink en RD Congo. Notre équipe vous contactera avec plus d'informations sur la disponibilité et les prochaines étapes.",
-    registerAnother: "Inscrire Une Autre Personne",
-    additionalInfo: "Starlink étend sa couverture à travers la RD Congo pour fournir un internet haut débit dans les zones auparavant mal desservies."
+    message: "Nous avons reçu votre demande concernant le service Starlink en RD Congo. Notre représentant vous contactera bientôt avec plus d'informations.",
+    registerAnother: "Soumettre Une Autre Demande",
+    additionalInfo: "BestBuy Congo est le distributeur officiel de Starlink en RD Congo, fournissant des solutions internet haut débit dans tout le pays."
   }
 };
 
@@ -43,12 +44,12 @@ const ThankYouMessage = ({ language, onReset }: ThankYouMessageProps) => {
             <p className="text-starlink-dark-blue">{text.additionalInfo}</p>
           </div>
           
-          <button 
+          <Button 
             onClick={onReset}
             className="btn-primary"
           >
             {text.registerAnother}
-          </button>
+          </Button>
         </div>
       </div>
     </section>
