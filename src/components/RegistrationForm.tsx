@@ -163,7 +163,7 @@ const RegistrationForm = ({
                 name="fullName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{text.fullName}*</FormLabel>
+                    <FormLabel className="text-[#023356]">{text.fullName}*</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
@@ -184,7 +184,7 @@ const RegistrationForm = ({
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{text.email}*</FormLabel>
+                    <FormLabel className="text-[#023356]">{text.email}*</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
@@ -207,7 +207,7 @@ const RegistrationForm = ({
                   name="nationality"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{text.nationality}*</FormLabel>
+                      <FormLabel className="text-[#023356]">{text.nationality}*</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder={text.placeholders.nationality}
@@ -224,7 +224,7 @@ const RegistrationForm = ({
                   name="city"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{text.city}*</FormLabel>
+                      <FormLabel className="text-[#023356]">{text.city}*</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder={text.placeholders.city}
@@ -242,7 +242,7 @@ const RegistrationForm = ({
                 name="address"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{text.address}*</FormLabel>
+                    <FormLabel className="text-[#023356]">{text.address}*</FormLabel>
                     <FormControl>
                       <Textarea 
                         placeholder={text.placeholders.address}
@@ -260,7 +260,7 @@ const RegistrationForm = ({
                 name="company"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{text.company}</FormLabel>
+                    <FormLabel className="text-[#023356]">{text.company}</FormLabel>
                     <FormControl>
                       <Input 
                         placeholder={text.placeholders.company}
@@ -277,7 +277,7 @@ const RegistrationForm = ({
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{text.description}</FormLabel>
+                    <FormLabel className="text-[#023356]">{text.description}</FormLabel>
                     <FormControl>
                       <Textarea 
                         placeholder={text.placeholders.description}
