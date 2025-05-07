@@ -24,7 +24,9 @@ interface RegistrationFormProps {
 
 // ... countryCodes, translations, and createInquirySchema remain unchanged ...
 
-
+// Imports here
+import { useToast } from '@/hooks/use-toast';
+// ...other imports...
 
 // ✅ Add this before the component starts
 const translations = {
@@ -39,6 +41,16 @@ const translations = {
 };
 
 // Optional: also include createInquirySchema() here if it's missing
+
+const createInquirySchema = (text: any) => z.object({
+  fullName: z.string().min(1, { message: text.validation.nameRequired }),
+  email: z.string().min(1, { message: text.validation.emailRequired }).email({ message: text.validation.emailInvalid }),
+  countryCode: z.string().min(1, { message: text.validation.countryCodeRequired }),
+  phoneNumber: z.string().min(1, { message: text.validation.phoneRequired }),
+  city: z.string().min(1, { message: text.validation.cityRequired }),
+  company: z.string().optional(),
+  description: z.string().optional(),
+});
 
 
 const RegistrationForm = ({ language, onSubmitSuccess }: RegistrationFormProps) => {
