@@ -115,7 +115,7 @@ const ProductsSection = ({ language }: ProductsProps) => {
           <ProductCard 
             name={text.flatHpKit.name}
             description={text.flatHpKit.description}
-            imagePath="/lovable-uploads/758810e9-cabd-4d49-bb36-f23997219f35.png"
+            imagePath="/lovable-uploads/3e78cd98-1a1d-4ccf-8671-827259c31dd4.png"
             buttonText={text.inquireButton}
             onClick={handleInquire}
           />
