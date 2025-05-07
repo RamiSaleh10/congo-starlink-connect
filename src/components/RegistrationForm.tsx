@@ -24,6 +24,25 @@ interface RegistrationFormProps {
 
 // ... countryCodes, translations, and createInquirySchema remain unchanged ...
 
+// Imports here
+import { useToast } from '@/hooks/use-toast';
+// ...other imports...
+
+// ✅ Add this before the component starts
+const translations = {
+  en: {
+    heading: "Register Your Interest",
+    // ...
+  },
+  fr: {
+    heading: "Enregistrez Votre Intérêt",
+    // ...
+  }
+};
+
+// Optional: also include createInquirySchema() here if it's missing
+
+
 const RegistrationForm = ({ language, onSubmitSuccess }: RegistrationFormProps) => {
   const text = translations[language];
   const { toast } = useToast();
