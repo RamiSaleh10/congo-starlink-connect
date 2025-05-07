@@ -55,7 +55,7 @@ const BenefitsSection: React.FC<BenefitsSectionProps> = ({
           {text.heading}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {text.benefits.map((benefit, index) => <div key={index} className="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" onClick={scrollToProducts}>
+          {text.benefits.map((benefit, index) => <div key={index} onClick={scrollToProducts} className="p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer bg-neutral-100">
               <div className="flex flex-col items-center text-center">
                 <div className="p-3 bg-starlink-light-blue rounded-full mb-4">
                   <benefit.icon className="h-6 w-6 text-white" />
