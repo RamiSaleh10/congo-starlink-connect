@@ -53,7 +53,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ name, description, imagePath, buttonText, onClick }: ProductCardProps) => (
-  <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-[1.02] hover:shadow-xl">
+  <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-[1.02] hover:shadow-xl flex flex-col h-full">
     <div className="p-4">
       <h3 className="text-xl font-bold text-starlink-dark-blue mb-2">{name}</h3>
     </div>
@@ -64,11 +64,11 @@ const ProductCard = ({ name, description, imagePath, buttonText, onClick }: Prod
         className="w-full h-full object-contain"
       />
     </div>
-    <div className="p-6">
+    <div className="p-6 flex-grow flex flex-col justify-between">
       <p className="text-starlink-slate mb-4">{description}</p>
       <Button 
         onClick={onClick} 
-        className="w-full bg-starlink-light-blue hover:bg-starlink-dark-blue"
+        className="w-full bg-starlink-light-blue hover:bg-starlink-dark-blue mt-auto"
       >
         {buttonText} <MoveRight className="ml-2 h-4 w-4" />
       </Button>
