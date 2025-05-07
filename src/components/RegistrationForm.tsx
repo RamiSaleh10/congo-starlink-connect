@@ -152,9 +152,10 @@ const RegistrationForm = ({
                       <div className="relative">
                         <User className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
                         <Input 
-                          className="pl-10" 
+                          className="pl-10 text-white" 
                           placeholder={text.placeholders.fullName}
                           {...field} 
+                          style={{ color: "white" }}
                         />
                       </div>
                     </FormControl>
@@ -173,10 +174,11 @@ const RegistrationForm = ({
                       <div className="relative">
                         <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
                         <Input 
-                          className="pl-10" 
+                          className="pl-10 text-white" 
                           placeholder={text.placeholders.email}
                           type="email"
                           {...field} 
+                          style={{ color: "white" }}
                         />
                       </div>
                     </FormControl>
@@ -194,7 +196,9 @@ const RegistrationForm = ({
                     <FormControl>
                       <Input 
                         placeholder={text.placeholders.city}
+                        className="text-white"
                         {...field} 
+                        style={{ color: "white" }}
                       />
                     </FormControl>
                     <FormMessage />
@@ -211,7 +215,9 @@ const RegistrationForm = ({
                     <FormControl>
                       <Input 
                         placeholder={text.placeholders.company}
+                        className="text-white"
                         {...field} 
+                        style={{ color: "white" }}
                       />
                     </FormControl>
                     <FormMessage />
@@ -228,9 +234,10 @@ const RegistrationForm = ({
                     <FormControl>
                       <Textarea 
                         placeholder={text.placeholders.description}
-                        className="resize-none"
+                        className="resize-none text-white"
                         rows={4}
                         {...field} 
+                        style={{ color: "white" }}
                       />
                     </FormControl>
                     <FormMessage />
