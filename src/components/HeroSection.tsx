@@ -33,13 +33,6 @@ const HeroSection = ({ language }: HeroSectionProps) => {
           <p className="text-lg md:text-xl mb-8 text-starlink-sky-blue animate-fade-in">
             {text.subheading}
           </p>
-          <div className="flex justify-center">
-            <img 
-              src="https://i.imgur.com/uJzWHdz.png" 
-              alt="Starlink Dish" 
-              className="w-64 md:w-80 object-contain rounded-lg shadow-lg animate-fade-in"
-            />
-          </div>
         </div>
       </div>
     </section>
