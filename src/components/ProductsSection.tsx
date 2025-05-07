@@ -99,7 +99,7 @@ const ProductsSection = ({ language }: ProductsProps) => {
           <ProductCard 
             name={text.standardKit.name}
             description={text.standardKit.description}
-            imagePath="/lovable-uploads/a72d48dc-245a-41f1-928d-35f037c2d8fa.png"
+            imagePath="/lovable-uploads/d8265ba2-5bd8-4832-afd8-96a9806aaf71.png"
             buttonText={text.inquireButton}
             onClick={handleInquire}
           />
