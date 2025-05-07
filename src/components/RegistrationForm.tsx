@@ -8,12 +8,24 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Mail, User } from 'lucide-react';
+import { Mail, User, Phone } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface RegistrationFormProps {
   language: 'en' | 'fr';
   onSubmitSuccess: () => void;
 }
+
+const countryCodes = [
+  { code: '+243', country: 'Congo (DRC)' },
+  { code: '+1', country: 'USA' },
+  { code: '+33', country: 'France' },
+  { code: '+27', country: 'South Africa' },
+  { code: '+254', country: 'Kenya' },
+  { code: '+250', country: 'Rwanda' },
+  { code: '+256', country: 'Uganda' },
+  { code: '+44', country: 'United Kingdom' }
+];
 
 const translations = {
   en: {
@@ -21,6 +33,8 @@ const translations = {
     subheading: "Complete the form below to express your interest in Starlink services",
     fullName: "Full Name",
     email: "Email Address",
+    phoneNumber: "Phone Number",
+    countryCode: "Country Code",
     city: "City",
     company: "Company Name (Optional)",
     description: "Short Description of Inquiry (Optional)",
@@ -28,6 +42,7 @@ const translations = {
     placeholders: {
       fullName: "Enter your full name",
       email: "Enter your email address",
+      phoneNumber: "Enter your phone number",
       city: "Enter your city",
       company: "Enter your company name (if applicable)",
       description: "Enter details about your inquiry"
@@ -36,6 +51,8 @@ const translations = {
       nameRequired: "Full name is required",
       emailRequired: "Email is required",
       emailInvalid: "Please enter a valid email",
+      phoneRequired: "Phone number is required",
+      countryCodeRequired: "Country code is required",
       cityRequired: "City is required"
     }
   },
@@ -44,6 +61,8 @@ const translations = {
     subheading: "Remplissez le formulaire ci-dessous pour exprimer votre intérêt pour les services Starlink",
     fullName: "Nom Complet",
     email: "Adresse Email",
+    phoneNumber: "Numéro de Téléphone",
+    countryCode: "Code du Pays",
     city: "Ville",
     company: "Nom de l'Entreprise (Optionnel)",
     description: "Description Courte de la Demande (Optionnel)",
@@ -51,6 +70,7 @@ const translations = {
     placeholders: {
       fullName: "Entrez votre nom complet",
       email: "Entrez votre adresse email",
+      phoneNumber: "Entrez votre numéro de téléphone",
       city: "Entrez votre ville",
       company: "Entrez le nom de votre entreprise (si applicable)",
       description: "Entrez les détails de votre demande"
@@ -59,6 +79,8 @@ const translations = {
       nameRequired: "Le nom complet est requis",
       emailRequired: "L'email est requis",
       emailInvalid: "Veuillez entrer un email valide",
+      phoneRequired: "Le numéro de téléphone est requis",
+      countryCodeRequired: "Le code du pays est requis",
       cityRequired: "La ville est requise"
     }
   }
@@ -68,6 +90,8 @@ const translations = {
 const createInquirySchema = (text: any) => z.object({
   fullName: z.string().min(1, { message: text.validation.nameRequired }),
   email: z.string().min(1, { message: text.validation.emailRequired }).email({ message: text.validation.emailInvalid }),
+  countryCode: z.string().min(1, { message: text.validation.countryCodeRequired }),
+  phoneNumber: z.string().min(1, { message: text.validation.phoneRequired }),
   city: z.string().min(1, { message: text.validation.cityRequired }),
   company: z.string().optional(),
   description: z.string().optional(),
@@ -89,6 +113,8 @@ const RegistrationForm = ({
     defaultValues: {
       fullName: "",
       email: "",
+      countryCode: "+243", // Default to Congo (DRC)
+      phoneNumber: "",
       city: "",
       company: "",
       description: "",
@@ -186,6 +212,56 @@ const RegistrationForm = ({
                   </FormItem>
                 )}
               />
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <FormField
+                  control={form.control}
+                  name="countryCode"
+                  render={({ field }) => (
+                    <FormItem className="md:col-span-1">
+                      <FormLabel className="text-[#023356]">{text.countryCode}*</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="text-white">
+                            <SelectValue placeholder="Country Code" className="text-white" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {countryCodes.map((country) => (
+                            <SelectItem key={country.code} value={country.code}>
+                              {country.code} - {country.country}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="phoneNumber"
+                  render={({ field }) => (
+                    <FormItem className="md:col-span-2">
+                      <FormLabel className="text-[#023356]">{text.phoneNumber}*</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+                          <Input 
+                            className="pl-10 text-white" 
+                            placeholder={text.placeholders.phoneNumber}
+                            type="tel"
+                            {...field} 
+                            style={{ color: "white" }}
+                          />
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
               
               <FormField
                 control={form.control}
