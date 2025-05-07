@@ -28,7 +28,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Header language={language} onLanguageChange={handleLanguageChange} />
       
-      <main className="flex-grow">
+      <main className="flex-grow pt-16">
         <HeroSection language={language} />
         <BenefitsSection language={language} />
         
