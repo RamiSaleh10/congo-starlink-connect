@@ -18,8 +18,8 @@ const translations = {
         description: "With latency as low as 20-40ms, enjoy video calls and online gaming without interruption"
       },
       {
-        title: "Easy Setup",
-        description: "Simple self-installation with everything needed included in the kit"
+        title: "Works Everywhere",
+        description: "Reliable connectivity across all regions—urban, rural, or remote—with global Starlink satellite coverage"
       }
     ]
   },
@@ -35,8 +35,8 @@ const translations = {
         description: "Avec une latence aussi faible que 20-40ms, profitez d'appels vidéo et de jeux en ligne sans interruption"
       },
       {
-        title: "Installation Facile",
-        description: "Installation simple avec tout le nécessaire inclus dans le kit"
+        title: "Fonctionne Partout",
+        description: "Connectivité fiable dans toutes les régions—urbaines, rurales ou éloignées—avec la couverture satellite mondiale de Starlink"
       }
     ]
   }
