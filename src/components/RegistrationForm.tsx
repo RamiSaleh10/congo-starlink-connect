@@ -24,20 +24,6 @@ interface RegistrationFormProps {
 
 // ... countryCodes, translations, and createInquirySchema remain unchanged ...
 
-// Imports here
-import { useToast } from '@/hooks/use-toast';
-// ...other imports...
-const translations = {
-  en: {
-    heading: "Register Your Interest",
-    subheading: "Complete the form below to express your interest in Starlink services",
-    fullName: "Full Name",
-    email: "Email Address",
-    phoneNumber: "Phone Number",
-    countryCode: "Country Code",
-    city: "City",
-    company: "Company Name (Optional)",
-   
 
 
 // ✅ Add this before the component starts
