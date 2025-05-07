@@ -21,8 +21,6 @@ const translations = {
     subheading: "Complete the form below to express your interest in Starlink services",
     fullName: "Full Name",
     email: "Email Address",
-    nationality: "Nationality",
-    address: "Address",
     city: "City",
     company: "Company Name (Optional)",
     description: "Short Description of Inquiry (Optional)",
@@ -30,8 +28,6 @@ const translations = {
     placeholders: {
       fullName: "Enter your full name",
       email: "Enter your email address",
-      nationality: "Enter your nationality",
-      address: "Enter your complete address",
       city: "Enter your city",
       company: "Enter your company name (if applicable)",
       description: "Enter details about your inquiry"
@@ -40,8 +36,6 @@ const translations = {
       nameRequired: "Full name is required",
       emailRequired: "Email is required",
       emailInvalid: "Please enter a valid email",
-      nationalityRequired: "Nationality is required",
-      addressRequired: "Address is required",
       cityRequired: "City is required"
     }
   },
@@ -50,8 +44,6 @@ const translations = {
     subheading: "Remplissez le formulaire ci-dessous pour exprimer votre intérêt pour les services Starlink",
     fullName: "Nom Complet",
     email: "Adresse Email",
-    nationality: "Nationalité",
-    address: "Adresse",
     city: "Ville",
     company: "Nom de l'Entreprise (Optionnel)",
     description: "Description Courte de la Demande (Optionnel)",
@@ -59,8 +51,6 @@ const translations = {
     placeholders: {
       fullName: "Entrez votre nom complet",
       email: "Entrez votre adresse email",
-      nationality: "Entrez votre nationalité",
-      address: "Entrez votre adresse complète",
       city: "Entrez votre ville",
       company: "Entrez le nom de votre entreprise (si applicable)",
       description: "Entrez les détails de votre demande"
@@ -69,8 +59,6 @@ const translations = {
       nameRequired: "Le nom complet est requis",
       emailRequired: "L'email est requis",
       emailInvalid: "Veuillez entrer un email valide",
-      nationalityRequired: "La nationalité est requise",
-      addressRequired: "L'adresse est requise",
       cityRequired: "La ville est requise"
     }
   }
@@ -80,8 +68,6 @@ const translations = {
 const createInquirySchema = (text: any) => z.object({
   fullName: z.string().min(1, { message: text.validation.nameRequired }),
   email: z.string().min(1, { message: text.validation.emailRequired }).email({ message: text.validation.emailInvalid }),
-  nationality: z.string().min(1, { message: text.validation.nationalityRequired }),
-  address: z.string().min(1, { message: text.validation.addressRequired }),
   city: z.string().min(1, { message: text.validation.cityRequired }),
   company: z.string().optional(),
   description: z.string().optional(),
@@ -103,8 +89,6 @@ const RegistrationForm = ({
     defaultValues: {
       fullName: "",
       email: "",
-      nationality: "",
-      address: "",
       city: "",
       company: "",
       description: "",
@@ -200,53 +184,16 @@ const RegistrationForm = ({
                   </FormItem>
                 )}
               />
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="nationality"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-[#023356]">{text.nationality}*</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder={text.placeholders.nationality}
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="city"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-[#023356]">{text.city}*</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder={text.placeholders.city}
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
               
               <FormField
                 control={form.control}
-                name="address"
+                name="city"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[#023356]">{text.address}*</FormLabel>
+                    <FormLabel className="text-[#023356]">{text.city}*</FormLabel>
                     <FormControl>
-                      <Textarea 
-                        placeholder={text.placeholders.address}
-                        className="resize-none"
+                      <Input 
+                        placeholder={text.placeholders.city}
                         {...field} 
                       />
                     </FormControl>
