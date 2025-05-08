@@ -11,6 +11,8 @@ import { Mail, User, Phone } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { createClient } from '@supabase/supabase-js';
 import emailjs from '@emailjs/browser';
+import { createInquirySchema } from '@/lib/validation'; // Adjust the path as necessary
+
 
 const supabase = createClient(
   'https://mjkhixneqwltxbeoeagk.supabase.co',
@@ -23,6 +25,7 @@ interface RegistrationFormProps {
 }
 
 // ... countryCodes, translations, and createInquirySchema remain unchanged ...
+
 
 
 // ✅ Add this before the component starts
