@@ -11,7 +11,6 @@ import { Mail, User, Phone } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { createClient } from '@supabase/supabase-js';
 import emailjs from '@emailjs/browser';
-import { createInquirySchema } from '@/lib/validation'; // Adjust the path as necessary
 
 
 const supabase = createClient(
@@ -39,6 +38,17 @@ const translations = {
     // ...
   }
 };
+
+const createInquirySchema = (text: any) =>
+  z.object({
+    fullName: z.string().min(1, { message: text?.validation?.nameRequired || "Full name is required" }),
+    email: z.string().min(1, { message: text?.validation?.emailRequired || "Email is required" }).email({ message: text?.validation?.emailInvalid || "Invalid email" }),
+    countryCode: z.string().min(1, { message: text?.validation?.countryCodeRequired || "Country code is required" }),
+    phoneNumber: z.string().min(1, { message: text?.validation?.phoneRequired || "Phone number is required" }),
+    city: z.string().min(1, { message: text?.validation?.cityRequired || "City is required" }),
+    company: z.string().optional(),
+    description: z.string().optional()
+  });
 
 // Optional: also include createInquirySchema() here if it's missing
 
